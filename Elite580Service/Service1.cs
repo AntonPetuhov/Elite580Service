@@ -345,7 +345,7 @@ namespace Elite580Service
                         string[] lines = System.IO.File.ReadAllLines(file);
                         string RID = "";
                         string Test = "";
-                        string Result = "";
+                        //string Result = "";
                         string Comment = "";
 
                         // обрезаем только имя текущего файла
@@ -382,9 +382,15 @@ namespace Elite580Service
                                 // преобразуем тест в код теста PSM
                                 string PSMTestCode = TranslateToPSMCodes(Test);
 
+                                string Result = "";
+
                                 if (ResultMatch.Success)
                                 {
                                     Result = ResultMatch.Result("${Result}");
+                                }
+                                else
+                                {
+                                    Result = "----";
                                 }
 
                                 // если код тест был интерпретирован
